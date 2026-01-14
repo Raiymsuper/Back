@@ -12,7 +12,9 @@ class User(Base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True)
+    pnumber = Column(String, unique=True, index=True, nullable=False)  # P1234567
     full_name = Column(String, nullable=False)
+    password_hash = Column(String, nullable=False)
     role = Column(Enum(UserRole), nullable=False)
 
 # Resources
@@ -55,3 +57,6 @@ class Booking(Base):
             name="unique_resource_time_slot"
         ),
     )
+
+
+
